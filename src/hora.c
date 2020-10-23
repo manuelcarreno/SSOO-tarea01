@@ -4,6 +4,14 @@
 #include <time.h>
 #include <signal.h>
 
+void TyF(int sig){             // se crea una funcion para obtener la fecha y la hora
+	time_t tiempo;         // usando la libreria time obtenemos los datos de la fecha y hora
+	char* fecha; 
+	tiempo= time(NULL);
+	fecha=ctime(&tiempo);
+	printf("señal recibida SIGUSR1: %s", fecha);//una vez obtenidos los datos se muestran por pantalla
+}
+
 int main(){
 	while(1){
 		printf("Programa hora ejecutandose . PID=%d\n", getpid());     //El primer while imprimira continuamente el PID por pantalla
@@ -15,10 +23,4 @@ int main(){
 	}
 }
 
-void TyF(int sig){             // se crea una funcion para obtener la fecha y la hora
-	time_t tiempo;         // usando la libreria time obtenemos los datos de la fecha y hora
-	char* fecha; 
-	tiempo= time(NULL);
-	fecha=ctime(&tiempo);
-	printf("señal recibida SIGUSR1: %s", fecha);//una vez obtenidos los datos se muestran por pantalla
-}
+
