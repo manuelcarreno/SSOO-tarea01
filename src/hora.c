@@ -10,7 +10,7 @@ int main(){
 		while(1){
 			printf("Listo para recibir la señal SIGUSR1\n");
 			signal(SIGUSR1,TyF);             //con la libreria signal se importa una funcion la cual tomara la señaal y ejecutara nuestra funcion TyH
-			sleep(11);
+			sleep(11);                       //se establece un deley entre la peticion de señales
 		}
 	}
 }
